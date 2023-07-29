@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color:#000;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Add transition for opacity changes on both the image and the hero text */
+.hero-section-img,
+.hero-text {
+  transition: opacity 2s;
+  opacity: 1;
+}
+
+#hero-video video {
+   transition: opacity 1s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span.hero-section-menu-text {
+    font-size: 12px;
+    text-align: center;
+}
+
+section#hero-section {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section-img {
+    position: absolute;
+    width: 100%;
+
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: end; /* Align grid items to the end of the container */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1; /* To place the menu items above the hero text */
+}
+
+.menu-hover-buttons {
+    display: flex;
+    flex-direction: column; /* Show icon above the text */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s; /* Add opacity transition for fade effect */
+}
+
+.menu-hover-buttons:hover {
+    opacity: 0.7; /* Reduce opacity on hover */
+}
+
+/* Hero Text Styles */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust the position of the hero text */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    z-index: 1; /* To place the hero text above the hero image */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.3s; /* Add opacity transition for fade effect */
+}
+
+.hero-text-paragraph {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust the position of the hero text */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    z-index: 1; /* To place the hero text above the hero image */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.3s;
+    margin-top:50px; /* Add opacity transition for fade effect */
+}
+
+/* Mobile and Tablet Styles */
+@media screen and (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: repeat(4, 1fr); /* Show four menu items in a row on mobile and tablet */
+    }
+    .hero-text {
+        display: block; /* Hide hero text on mobile and tablet */
+    }
+            .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%; /* Center the hero text */
+            transform: translate(-50%, -50%); /* Center the hero text vertically and horizontally */
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center; /* Center align the hero text */
+            z-index: 1; /* To place the hero text above the hero image */
+            opacity: 1; /* Initial opacity */
+            transition: opacity 0.3s; /* Add opacity transition for fade effect */
+        }
+}
+
+        #hero-video {
+            width: 100%;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-video video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+        .menu-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-hover-buttons {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.hover-line {
+  position: absolute;
+  height: 5px;
+  background-color: #fff; /* Change the color to your preference */
+  width: 100px; /* Change the initial width to fit your needs */
+  transition: transform 0.3s ease;
+
+}
+    </style>
+</head>
+<body>
+    <section id="hero-section" class="hero-img">
+
+        <div id="hero-video" class="first-item-default"">
+            <video autoplay loop muted>
+                <source src="https://www.grsprotection.com/wp-content/uploads/2023/07/Security-Services-by-GRS-Protection-Your-Trusted-Partner.webm" type="video/mp4">
+            </video>
+            <img src="" alt="" class="hero-section-img">
+            <div class="hero-text-container" id="hero-heading-container">
+            <div class="hero-text" id="hero-heading">This is the first menu item</div>
+            <div class="hero-text-paragraph" id="hero-paragraph">This is the first menu item paragraph</div>
+            </div>
+        </div>
+        <div class="menu-container">
+            <div class="menu-hover-buttons" id="first-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    First Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="second-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Second Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="third-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Third Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="fourth-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Fourth Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="fifth-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Fifth Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="sixth-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Sixth Menu Item
+                </span>
+            </div>
+
+            <div class="menu-hover-buttons" id="seventh-item">
+                <span class="icons-fontawesome">
+                    <i class="fa-solid fa-user-secret"></i>
+                </span>
+                <span class="hero-section-menu-text">
+                    Seventh Menu Item
+                </span>
+            </div>
+            <div class="hover-line"></div>
+        </div>
+    </section>
+    <section>
+        EXPERIENCE-DRIVEN EXCELLENCE
+What truly sets GRS Protection apart is our esteemed status as a Veteran-Owned and Operated organization. GRS Protection is composed of proud veterans who have served their nation proactively, bravely, and selflessly. The ethos of honor, resilience, and duty, instilled in them throughout their military and law enforcement careers, now forms the core of our culture.
+
+Our agents bring a diverse array of skills, honed under the most demanding conditions, to address your security needs. They’ve been battle-tested, demonstrating unwavering resilience and a steadfast commitment to safeguarding others, even in the face of adversity. Their unshakable integrity ensures that they act honestly, ethically, and responsibly in every situation.
+
+At GRS Protection, we don’t just utilize these attributes to offer you a service; we apply them to foster a safer, more secure environment for you. We consider ourselves to be true protectors, for whom your safety is the highest priority. You aren’t just a client to us; you’re a part of the GRS family, and your security, peace of mind, and well-being will always come first.
+    
+    
+    EXPERIENCE-DRIVEN EXCELLENCE
+What truly sets GRS Protection apart is our esteemed status as a Veteran-Owned and Operated organization. GRS Protection is composed of proud veterans who have served their nation proactively, bravely, and selflessly. The ethos of honor, resilience, and duty, instilled in them throughout their military and law enforcement careers, now forms the core of our culture.
+
+Our agents bring a diverse array of skills, honed under the most demanding conditions, to address your security needs. They’ve been battle-tested, demonstrating unwavering resilience and a steadfast commitment to safeguarding others, even in the face of adversity. Their unshakable integrity ensures that they act honestly, ethically, and responsibly in every situation.
+
+At GRS Protection, we don’t just utilize these attributes to offer you a service; we apply them to foster a safer, more secure environment for you. We consider ourselves to be true protectors, for whom your safety is the highest priority. You aren’t just a client to us; you’re a part of the GRS family, and your security, peace of mind, and well-being will always come first.
+
+EXPERIENCE-DRIVEN EXCELLENCE
+What truly sets GRS Protection apart is our esteemed status as a Veteran-Owned and Operated organization. GRS Protection is composed of proud veterans who have served their nation proactively, bravely, and selflessly. The ethos of honor, resilience, and duty, instilled in them throughout their military and law enforcement careers, now forms the core of our culture.
+
+Our agents bring a diverse array of skills, honed under the most demanding conditions, to address your security needs. They’ve been battle-tested, demonstrating unwavering resilience and a steadfast commitment to safeguarding others, even in the face of adversity. Their unshakable integrity ensures that they act honestly, ethically, and responsibly in every situation.
+
+At GRS Protection, we don’t just utilize these attributes to offer you a service; we apply them to foster a safer, more secure environment for you. We consider ourselves to be true protectors, for whom your safety is the highest priority. You aren’t just a client to us; you’re a part of the GRS family, and your security, peace of mind, and well-being will always come first.
+    </section>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            // Get the scroll position
+            var scrolly = $(this).scrollTop();
+
+            // Calculate the zoom factor based on scroll position
+            // Increase the scaling factor to zoom more per scroll pixel
+            var scale = 1 + scrolly * 0.003;
+
+            // Apply the zoom effect to both the hero image and video
+            $(".hero-img img, #hero-video video").css({
+                transform: `scale(${scale})`
+            });
+
+            // Adjust the opacity of the hero text and menu buttons as well
+            var opacity = 1 - scrolly * 0.005;
+            $(".hero-text, .menu-hover-buttons, .hero-text-paragraph").css("opacity", opacity);
+        });
+    });
+
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            var scroll = $(this).scrollTop();
+            var opacity = 1 - scroll * 0.005;
+            $(".hero-text, .menu-hover-buttons, .hero-text-paragraph").css("opacity", opacity);
+        });
+    });
+
+
+
+
+
+
+// Get references to the elements
+const heroSection = document.getElementById("hero-section");
+const heroVideo = document.querySelector("#hero-video video");
+const heroImage = document.querySelector(".hero-section-img");
+const heroHeading = document.getElementById("hero-heading");
+const heroParagraph = document.getElementById("hero-paragraph");
+
+// Function to show the video
+function showVideo() {
+  heroVideo.style.display = "block";
+  heroVideo.play();
+}
+
+// Function to hide the video
+function hideVideo() {
+  heroVideo.style.display = "none";
+  heroVideo.pause();
+}
+
+    // Function to update the heading and paragraph with fade effect
+    function updateContentWithFade(imageSrc, headingText, paragraphText) {
+        heroImage.style.opacity = 0; // Set opacity to 0 for the fade-out effect
+        heroHeading.style.opacity = 0; // Set opacity to 0 for the fade-out effect
+        heroParagraph.style.opacity = 0; // Set opacity to 0 for the fade-out effect
+
+        // Wait for a short delay to ensure the fade-out effect is visible
+        setTimeout(() => {
+            heroImage.src = imageSrc;
+            heroHeading.textContent = headingText;
+            heroParagraph.textContent = paragraphText;
+
+            // Wait for a short delay before fading in the new content
+            setTimeout(() => {
+                heroImage.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
+                heroHeading.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
+                heroParagraph.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
+            }, 100);
+        }, 200);
+    }
+
+
+
+    // Event listener for hovering over the first menu item
+    document.getElementById("first-item").addEventListener("mouseover", () => {
+        showVideo();
+        updateContentWithFade(
+            "#",
+            "This is the first menu item",
+            "This is the first menu item paragraph"
+        );
+    });
+
+    // Event listener for hovering over the second menu item
+    document.getElementById("second-item").addEventListener("mouseover", () => {
+        hideVideo();
+        updateContentWithFade(
+            "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+            "This is the second menu item",
+            "This is the second menu item paragraph"
+        );
+    });
+
+    // Event listener for hovering over the third menu item
+    document.getElementById("third-item").addEventListener("mouseover", () => {
+        hideVideo();
+        updateContentWithFade(
+            "https://images.unsplash.com/photo-1517329782449-810562a4ec2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1163&q=80",
+            "This is the third menu item",
+            "This is the third menu item paragraph"
+        );
+    });
+
+
+  const hoverLine = document.querySelector('.hover-line');
+  const menuItems = document.querySelectorAll('.menu-hover-buttons');
+
+  menuItems.forEach((menuItem) => {
+    menuItem.addEventListener('mouseover', () => {
+      const itemRect = menuItem.getBoundingClientRect();
+      const containerRect = document.querySelector('.menu-container').getBoundingClientRect();
+      const offsetLeft = itemRect.left - containerRect.left;
+      hoverLine.style.transform = `translateX(${offsetLeft}px)`;
+    });
+  });
+
+
+    </script>
+
+</body>
+</html>
