@@ -282,112 +282,116 @@ At GRS Protection, we don’t just utilize these attributes to offer you a servi
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            // Get the scroll position
-            var scrolly = $(this).scrollTop();
+  // Variables to track transition state
+  let isTransitionInProgress = false;
+  let currentHoveredItem = null;
 
-            // Calculate the zoom factor based on scroll position
-            // Increase the scaling factor to zoom more per scroll pixel
-            var scale = 1 + scrolly * 0.003;
+  const heroVideo = document.querySelector("#hero-video video");
+  const heroImage = document.querySelector(".hero-section-img");
+  const heroHeading = document.getElementById("hero-heading");
+  const heroParagraph = document.getElementById("hero-paragraph");
 
-            // Apply the zoom effect to both the hero image and video
-            $(".hero-img img, #hero-video video").css({
-                transform: `scale(${scale})`
-            });
 
-            // Adjust the opacity of the hero text and menu buttons as well
-            var opacity = 1 - scrolly * 0.005;
-            $(".hero-text, .menu-hover-buttons, .hero-text-paragraph").css("opacity", opacity);
-        });
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      // Get the scroll position
+      var scrolly = $(this).scrollTop();
+
+      // Calculate the zoom factor based on scroll position
+      // Increase the scaling factor to zoom more per scroll pixel
+      var scale = 1 + scrolly * 0.003;
+
+      // Apply the zoom effect to both the hero image and video
+      $(".hero-img img, #hero-video video").css({
+        transform: `scale(${scale})`
+      });
+
+      // Adjust the opacity of the hero text and menu buttons as well
+      var opacity = 1 - scrolly * 0.005;
+      $(".hero-text, .menu-hover-buttons, .hero-text-paragraph, .hover-line").css("opacity", opacity);
     });
+  });
 
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            var scroll = $(this).scrollTop();
-            var opacity = 1 - scroll * 0.005;
-            $(".hero-text, .menu-hover-buttons, .hero-text-paragraph").css("opacity", opacity);
-        });
-    });
+  // Function to show the video
+  function showVideo() {
+    heroVideo.style.display = "block";
+    heroVideo.play();
+  }
 
+  // Function to hide the video
+  function hideVideo() {
+    heroVideo.style.display = "none";
+    heroVideo.pause();
+  }
 
-
-
-
-
-// Get references to the elements
-const heroSection = document.getElementById("hero-section");
-const heroVideo = document.querySelector("#hero-video video");
-const heroImage = document.querySelector(".hero-section-img");
-const heroHeading = document.getElementById("hero-heading");
-const heroParagraph = document.getElementById("hero-paragraph");
-
-// Function to show the video
-function showVideo() {
-  heroVideo.style.display = "block";
-  heroVideo.play();
-}
-
-// Function to hide the video
-function hideVideo() {
-  heroVideo.style.display = "none";
-  heroVideo.pause();
-}
-
-    // Function to update the heading and paragraph with fade effect
-    function updateContentWithFade(imageSrc, headingText, paragraphText) {
-        heroImage.style.opacity = 0; // Set opacity to 0 for the fade-out effect
-        heroHeading.style.opacity = 0; // Set opacity to 0 for the fade-out effect
-        heroParagraph.style.opacity = 0; // Set opacity to 0 for the fade-out effect
-
-        // Wait for a short delay to ensure the fade-out effect is visible
-        setTimeout(() => {
-            heroImage.src = imageSrc;
-            heroHeading.textContent = headingText;
-            heroParagraph.textContent = paragraphText;
-
-            // Wait for a short delay before fading in the new content
-            setTimeout(() => {
-                heroImage.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
-                heroHeading.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
-                heroParagraph.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
-            }, 100);
-        }, 200);
+  // Function to update the heading and paragraph with fade effect
+  function updateContentWithFade(imageSrc, headingText, paragraphText) {
+    // Check if a transition is already in progress
+    if (isTransitionInProgress) {
+      return;
     }
 
+    // Set the flag to indicate that a transition is starting
+    isTransitionInProgress = true;
 
+    heroImage.style.opacity = 0; // Set opacity to 0 for the fade-out effect
+    heroHeading.style.opacity = 0; // Set opacity to 0 for the fade-out effect
+    heroParagraph.style.opacity = 0; // Set opacity to 0 for the fade-out effect
 
-    // Event listener for hovering over the first menu item
-    document.getElementById("first-item").addEventListener("mouseover", () => {
-        showVideo();
-        updateContentWithFade(
-            "#",
-            "This is the first menu item",
-            "This is the first menu item paragraph"
-        );
-    });
+    // Wait for a short delay to ensure the fade-out effect is visible
+    setTimeout(() => {
+      heroImage.src = imageSrc;
+      heroHeading.textContent = headingText;
+      heroParagraph.textContent = paragraphText;
 
-    // Event listener for hovering over the second menu item
-    document.getElementById("second-item").addEventListener("mouseover", () => {
-        hideVideo();
-        updateContentWithFade(
-            "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-            "This is the second menu item",
-            "This is the second menu item paragraph"
-        );
-    });
+      // Wait for a short delay before fading in the new content
+      setTimeout(() => {
+        heroImage.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
+        heroHeading.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
+        heroParagraph.style.opacity = 1; // Set opacity back to 1 for the fade-in effect
 
-    // Event listener for hovering over the third menu item
-    document.getElementById("third-item").addEventListener("mouseover", () => {
-        hideVideo();
-        updateContentWithFade(
-            "https://images.unsplash.com/photo-1517329782449-810562a4ec2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1163&q=80",
-            "This is the third menu item",
-            "This is the third menu item paragraph"
-        );
-    });
+        // Set the flag to indicate that the transition is complete
+        isTransitionInProgress = false;
+      }, 50);
+    },300);
+  }
 
+  // Function to handle menu item hover events
+  function handleMenuItemHover(imageSrc, headingText, paragraphText) {
+    // Check if the current item is the same as the previously hovered item
+    if (currentHoveredItem === this) {
+      return;
+    }
 
+    // Hide the video and show the new content
+    if (this.id === "first-item") {
+      showVideo();
+    } else {
+      hideVideo();
+    }
+
+    updateContentWithFade(imageSrc, headingText, paragraphText);
+
+    // Set the current hovered item
+    currentHoveredItem = this;
+  }
+
+  // Event listeners for hovering over menu items
+  document.getElementById("first-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "#", "This is the first menu item", "This is the first menu item paragraph");
+  });
+
+  document.getElementById("second-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", "This is the second menu item", "This is the second menu item paragraph");
+  });
+
+  document.getElementById("third-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "https://images.unsplash.com/photo-1517329782449-810562a4ec2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1163&q=80", "This is the third menu item", "This is the third menu item paragraph");
+  });
+
+  // ... Add event listeners for the other menu items in a similar manner
+
+  // Hover line animation
   const hoverLine = document.querySelector('.hover-line');
   const menuItems = document.querySelectorAll('.menu-hover-buttons');
 
@@ -399,8 +403,6 @@ function hideVideo() {
       hoverLine.style.transform = `translateX(${offsetLeft}px)`;
     });
   });
-
-
     </script>
 
 </body>
