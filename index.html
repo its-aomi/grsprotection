@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Page Title</title>
+    <link href="https://db.onlinewebfonts.com/c/4c4c08af466e9ad071b6d69cf44093df?family=SaolDisplay-Regular" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -11,7 +12,8 @@ body {
     padding: 0;
     overflow-x: hidden;
     background-color:#000;
-    font-family: 'Playfair Display', serif;
+    font-family: "SaolDisplay-Regular";
+    text-transform:uppercase;
 }
 
 /* Add transition for opacity changes on both the image and the hero text */
@@ -66,11 +68,12 @@ section#hero-section {
     align-content: end; /* Align grid items to the end of the container */
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    width: 95vw;
     padding: 10px;
     z-index: 1; /* To place the menu items above the hero text */
 }
+
+
 
 .menu-hover-buttons {
     display: flex;
@@ -167,13 +170,23 @@ section#hero-section {
 }
 
 .hover-line {
-  position: absolute;
-  height: 5px;
-  background-color: #fff; /* Change the color to your preference */
-  width: 100px; /* Change the initial width to fit your needs */
-  transition: transform 0.3s ease;
-
+    position: absolute;
+    height: 10px;
+    background-color: #fff;
+    width: 134px;
+    transition: transform 0.3s ease;
+    margin-top: -10px;
+    margin-left: -10px;
 }
+.white-border {
+  position: absolute;
+  top: 0;
+  width: 93.6vw;
+  height: 2px;
+  background-color: #fff;
+  z-index: 1;
+}
+
     </style>
 </head>
 <body>
@@ -189,7 +202,9 @@ section#hero-section {
             <div class="hero-text-paragraph" id="hero-paragraph">This is the first menu item paragraph</div>
             </div>
         </div>
+
         <div class="menu-container">
+          <div class="white-border"></div>
             <div class="menu-hover-buttons" id="first-item">
                 <span class="icons-fontawesome">
                     <i class="fa-solid fa-user-secret"></i>
@@ -308,7 +323,7 @@ At GRS Protection, we don’t just utilize these attributes to offer you a servi
 
       // Adjust the opacity of the hero text and menu buttons as well
       var opacity = 1 - scrolly * 0.005;
-      $(".hero-text, .menu-hover-buttons, .hero-text-paragraph, .hover-line").css("opacity", opacity);
+      $(".hero-text, .menu-hover-buttons, .hero-text-paragraph, .hover-line, .white-border").css("opacity", opacity);
     });
   });
 
@@ -404,5 +419,6 @@ At GRS Protection, we don’t just utilize these attributes to offer you a servi
     });
   });
     </script>
+
 </body>
 </html>
