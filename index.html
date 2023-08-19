@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -186,10 +187,61 @@ section#hero-section {
   background-color: #fff;
   z-index: 1;
 }
+#navbar {
+  background-color: #000;
+  position: fixed;
+  top: -50px !important;
+  width: 100%;
+  display: block;
+  transition: top 0.3s, transform 0.3s;
+  z-index: 99999999 !important;
+}
 
+#navbar.default {
+  top: 0;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+div#default-navbar {
+    margin-bottom: -20px;
+    z-index: 9999999999 !important;
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+}
+
+div#default-navbar a{
+    color: #fff;
+    text-decoration: none;
+}
     </style>
 </head>
 <body>
+
+    <div id="default-navbar" class="default" style="display: ;">
+        <a href="#">Default Header</a>
+      </div>
+      
+      <div id="navbar" class="default">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </div>
+
     <section id="hero-section" class="hero-img">
 
         <div id="hero-video" class="first-item-default"">
@@ -419,6 +471,24 @@ At GRS Protection, we don’t just utilize these attributes to offer you a servi
     });
   });
     </script>
+<script>
+// Define the scroll ratio for sliding the header
+var scrollRatio = 3;
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  var defaultNavbar = document.getElementById("default-navbar");
+  var mainNavbar = document.getElementById("navbar");
+  var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  var slideDistance = Math.min(currentScroll / scrollRatio, 50); // Limit the slide to a maximum of 50px
+  
+  mainNavbar.style.top = "0";
+  mainNavbar.style.transform = "translateY(" + slideDistance + "px)";
+  
+  defaultNavbar.style.top = -slideDistance + "px";
+}
+</script>
 </body>
 </html>
