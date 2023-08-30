@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 body {
     margin: 0;
@@ -14,9 +15,10 @@ body {
     overflow-x: hidden;
     background-color:#000;
     font-family: "SaolDisplay-Regular";
-    text-transform:uppercase;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* Add transition for opacity changes on both the image and the hero text */
 .hero-section-img,
 .hero-text {
@@ -35,7 +37,7 @@ body {
 }
 
 span.hero-section-menu-text {
-    font-size: 12px;
+    font-size: 17px;
     text-align: center;
 }
 
@@ -56,11 +58,14 @@ section#hero-section {
 .hero-section-img {
     position: absolute;
     width: 100%;
-
     display: block;
     object-fit: cover;
     object-position: center;
     transform: scale(1);
+}
+
+img.hero-section-img {
+    filter: brightness(0.5);
 }
 
 .menu-container {
@@ -78,6 +83,7 @@ section#hero-section {
 
 .menu-hover-buttons {
     display: flex;
+    width: 200px;
     flex-direction: column; /* Show icon above the text */
     justify-content: center;
     align-items: center;
@@ -114,7 +120,7 @@ section#hero-section {
     left: 20px; /* Adjust the position of the hero text */
     transform: translateY(-50%);
     color: white;
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-align: left;
     z-index: 1; /* To place the hero text above the hero image */
     opacity: 1; /* Initial opacity */
@@ -174,7 +180,7 @@ section#hero-section {
     position: absolute;
     height: 10px;
     background-color: #fff;
-    width: 134px;
+    width: 154px;
     transition: transform 0.3s ease;
     margin-top: -10px;
     margin-left: -10px;
@@ -237,9 +243,9 @@ div#default-navbar a{
       </div>
       
       <div id="navbar" class="default">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">HOME</a>
+        <a href="#news">ARTICLES</a>
+        <a href="#contact">CONTACT</a>
       </div>
 
     <section id="hero-section" class="hero-img">
@@ -262,7 +268,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    First Menu Item
+                    Welcome
                 </span>
             </div>
 
@@ -271,7 +277,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Second Menu Item
+                    For You
                 </span>
             </div>
 
@@ -280,7 +286,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Third Menu Item
+                    Your Home
                 </span>
             </div>
 
@@ -289,7 +295,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Fourth Menu Item
+                    Your Business
                 </span>
             </div>
 
@@ -298,7 +304,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Fifth Menu Item
+                    Special Events
                 </span>
             </div>
 
@@ -307,7 +313,7 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Sixth Menu Item
+                  Educational Facilities
                 </span>
             </div>
 
@@ -316,9 +322,19 @@ div#default-navbar a{
                     <i class="fa-solid fa-user-secret"></i>
                 </span>
                 <span class="hero-section-menu-text">
-                    Seventh Menu Item
+                  Government Services
                 </span>
             </div>
+
+            <div class="menu-hover-buttons" id="eight-item">
+              <span class="icons-fontawesome">
+                  <i class="fa-solid fa-user-secret"></i>
+              </span>
+              <span class="hero-section-menu-text">
+                Investigations and Assessments
+              </span>
+          </div>
+
             <div class="hover-line"></div>
         </div>
     </section>
@@ -445,17 +461,36 @@ At GRS Protection, we don’t just utilize these attributes to offer you a servi
 
   // Event listeners for hovering over menu items
   document.getElementById("first-item").addEventListener("mouseover", function () {
-    handleMenuItemHover.call(this, "#", "This is the first menu item", "This is the first menu item paragraph");
+    handleMenuItemHover.call(this, "#", "TAmerica's Top Private Security Services", "Defining the Gold Standard in Nationwide Security, Protection, and Investigations");
   });
 
   document.getElementById("second-item").addEventListener("mouseover", function () {
-    handleMenuItemHover.call(this, "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", "This is the second menu item", "This is the second menu item paragraph");
+    handleMenuItemHover.call(this, "./img/For-You-scaled.jpg", "Ensuring Safety for Individuals", "Elite Protection Tailored to Your Needs");
   });
 
   document.getElementById("third-item").addEventListener("mouseover", function () {
-    handleMenuItemHover.call(this, "https://images.unsplash.com/photo-1517329782449-810562a4ec2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1163&q=80", "This is the third menu item", "This is the third menu item paragraph");
+    handleMenuItemHover.call(this, "./img/Your-Home-1-scaled.jpg", "Safeguarding Every Corner of Your Home", "Comprehensive Security for Your Family's Sanctuary");
   });
 
+  document.getElementById("fourth-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "./img/Your-Business-scaled.jpg", "Protecting Your Business Endeavors", "Strategic Security Solutions for Modern Enterprises");
+  });
+
+  document.getElementById("fifth-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "./img/Special-Events-scaled.jpg", "Securing Your Business Endeavors", "Multilayered Security for Your Event");
+  });
+
+  document.getElementById("sixth-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "./img/Educational-Facilities-scaled.jpg", "Preserving Safety in Private School Campuses", "Ensuring Safety and Protection in Learning Environments");
+  });
+
+  document.getElementById("seventh-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "./img/Government-Services-scaled.jpg", "Reinforcing Security Measures for Public Servants", "Upholding Integrity and Safety for Government Operations");
+  });
+
+  document.getElementById("eight-item").addEventListener("mouseover", function () {
+    handleMenuItemHover.call(this, "./img/Investigations-_.-Assessments-scaled.jpg", "In-Depth Investigations and Comprehensive Assessments", "Providing Peace of Mind through Detailed Analysis and Insights");
+  });
   // ... Add event listeners for the other menu items in a similar manner
 
   // Hover line animation
